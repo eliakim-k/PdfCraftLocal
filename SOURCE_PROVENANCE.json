@@ -1,0 +1,30 @@
+{
+  "app": "PdfCraftLocal",
+  "release_version": "0.10.7-local.20261103",
+  "baseline_source_commit": "650ec11ea5c64f1955486d7b41946e5a6f069aec",
+  "desktop_version": "0.10.7",
+  "installer_version": "0.10.8",
+  "unchanged_exe_sha256": "2bcbc13c6672866e853ea482fa8421605e0639ac46e6a03753e9436469260c6e",
+  "application_recompiled": false,
+  "packaging_only": true,
+  "later_development_included": false,
+  "toolchain": "WiX 6.0.2, existing .NET 8 runtime with Major roll-forward",
+  "signature_status": "unsigned",
+  "artifacts": [
+    {
+      "filename": "PdfCraftLocal-0.10.7-local.20261103-windows-x64.msi",
+      "bytes": 21348352,
+      "sha256": "c05cca28604e4b036ae9a7050d041fbe9b0f1ee5e1e46608a74528cacd44bf68"
+    },
+    {
+      "filename": "PdfCraftLocal-0.10.7-local.20261103-windows-x64-Setup.exe",
+      "bytes": 22543774,
+      "sha256": "2554355295f81c95da672faff9778b384b7fc1c5dbeb5ee9797977dce146f34d"
+    },
+    {
+      "filename": "PdfCraftLocal-0.10.7-local.20261103-windows-x64-Portable.zip",
+      "bytes": 27877707,
+      "sha256": "1a21536bc8bbbab16773b4847cddbefcdd1d2c0ba182757c62a50c2c68372dac"
+    }
+  ]
+}

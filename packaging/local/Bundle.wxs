@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal">
+  <Bundle Name="PdfCraft Local" Manufacturer="PdfCraft Local community build" Version="$(var.Version)"
+          UpgradeCode="DA8E97D1-975D-4A0F-AA06-C8AB4617C5B9" IconSourceFile="$(var.SourceDir)/assets/app-icon/pdfcraft.ico">
+    <BootstrapperApplication>
+      <bal:WixStandardBootstrapperApplication Theme="rtfLicense" LicenseFile="$(var.LicenseRtf)"
+                                             ShowVersion="yes" SuppressOptionsUI="yes" />
+    </BootstrapperApplication>
+    <Chain>
+      <MsiPackage Id="PdfCraftLocalMsi" SourceFile="$(var.MsiPath)" Compressed="yes" Vital="yes" />
+    </Chain>
+  </Bundle>
+</Wix>

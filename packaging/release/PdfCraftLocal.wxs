@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="PdfCraft Local" Manufacturer="PdfCraft Local community build" Version="$(var.Version)" UpgradeCode="E2C49E53-0142-4CDC-8F45-4250132B0AA9" Scope="perUser" Compressed="yes" Language="1033">
+    <SummaryInformation Description="PdfCraft Local offline desktop editor" />
+    <MajorUpgrade DowngradeErrorMessage="A newer PdfCraft Local is already installed." />
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+    <Property Id="MSIRESTARTMANAGERCONTROL" Value="DisableShutdown" />
+    <Icon Id="LocalIcon.ico" SourceFile="$(var.SourceDir)/assets/app-icon/pdfcraft.ico" />
+    <Property Id="ARPPRODUCTICON" Value="LocalIcon.ico" />
+    <StandardDirectory Id="LocalAppDataFolder">
+      <Directory Id="LocalPrograms" Name="Programs">
+        <Directory Id="INSTALLFOLDER" Name="PdfCraftLocal">
+          <Component Id="LocalExecutable" Guid="E10F33C9-8558-445D-A901-E483F7A5478A">
+            <File Id="LocalExe" Source="$(var.PayloadDir)/PdfCraftLocal.exe" />
+            <RegistryValue Root="HKCU" Key="Software\PdfCraftLocal\Install" Name="Executable" Type="string" Value="[#LocalExe]" KeyPath="yes" />
+            <RemoveFolder Id="RemoveInstall" On="uninstall" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\PdfCraftLocal.Document" Type="string" Value="PdfCraft Local document" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\PdfCraftLocal.Document\DefaultIcon" Type="string" Value="&quot;[#LocalExe]&quot;,0" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\PdfCraftLocal.Document\shell\open\command" Type="string" Value="&quot;[#LocalExe]&quot; &quot;%1&quot;" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\PdfCraftLocal.Document\Application" Type="string" Value="PdfCraft Local" Name="ApplicationName" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\PdfCraftLocal.Document\Application" Type="string" Value="&quot;[#LocalExe]&quot;,0" Name="ApplicationIcon" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\PdfCraftLocal.exe" Type="string" Value="PdfCraft Local" Name="FriendlyAppName" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\PdfCraftLocal.exe\DefaultIcon" Type="string" Value="&quot;[#LocalExe]&quot;,0" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\PdfCraftLocal.exe\shell\open\command" Type="string" Value="&quot;[#LocalExe]&quot; &quot;%1&quot;" />
+            <RegistryValue Root="HKCU" Key="Software\PdfCraftLocal\Capabilities" Type="string" Value="PdfCraft Local" Name="ApplicationName" />
+            <RegistryValue Root="HKCU" Key="Software\PdfCraftLocal\Capabilities" Type="string" Value="PdfCraft Local local document editor" Name="ApplicationDescription" />
+            <RegistryValue Root="HKCU" Key="Software\PdfCraftLocal\Capabilities" Type="string" Value="&quot;[#LocalExe]&quot;,0" Name="ApplicationIcon" />
+            <RegistryValue Root="HKCU" Key="Software\RegisteredApplications" Type="string" Value="Software\PdfCraftLocal\Capabilities" Name="PdfCraft Local" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\.pdf\OpenWithProgids" Type="string" Value="" Name="PdfCraftLocal.Document" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\PdfCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".pdf" />
+            <RegistryValue Root="HKCU" Key="Software\PdfCraftLocal\Capabilities\FileAssociations" Type="string" Value="PdfCraftLocal.Document" Name=".pdf" />
+          </Component>
+          <Component Id="LocalNotices" Guid="3EE319F1-32AC-4199-866A-8393E10F7E40">
+            <File Source="$(var.PayloadDir)/THIRD-PARTY-NOTICES.txt" />
+            <File Source="$(var.PayloadDir)/LICENSE-MIT" />
+            <File Source="$(var.PayloadDir)/LICENSE-APACHE" />
+            <File Source="$(var.PayloadDir)/README.txt" />
+            <RegistryValue Root="HKCU" Key="Software\PdfCraftLocal\Install" Name="Notices" Type="integer" Value="1" KeyPath="yes" />
+          <File Source="$(var.PayloadDir)/NOTICE" /><File Source="$(var.PayloadDir)/LICENSE-document.txt" /></Component>
+        </Directory>
+      </Directory>
+    </StandardDirectory>
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="LocalStartMenu" Name="PdfCraft Local">
+        <Component Id="LocalShortcut" Guid="F372A756-BF7A-4B76-9661-6FA7156B8E9F">
+          <Shortcut Id="StartLocal" Name="PdfCraft Local" Target="[#LocalExe]" WorkingDirectory="INSTALLFOLDER" Icon="LocalIcon.ico" />
+          <RemoveFolder Id="RemoveMenu" On="uninstall" />
+          <RegistryValue Root="HKCU" Key="Software\PdfCraftLocal\Install" Name="Shortcut" Type="integer" Value="1" KeyPath="yes" />
+        </Component>
+      </Directory>
+    </StandardDirectory>
+    <Feature Id="Main" Title="PdfCraft Local" Level="1">
+      <ComponentRef Id="LocalExecutable" />
+      <ComponentRef Id="LocalNotices" />
+      <ComponentRef Id="LocalShortcut" />
+    </Feature>
+  </Package>
+</Wix>
