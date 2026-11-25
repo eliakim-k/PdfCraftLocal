@@ -1,5 +1,15 @@
 # PdfCraftLocal
 
+## Download for Windows
+
+**[Download PdfCraftLocal Setup EXE](https://github.com/eliakim-k/PdfCraftLocal/releases/download/v0.10.7-local.20261103/PdfCraftLocal-0.10.7-local.20261103-windows-x64-Setup.exe)** · [Portable ZIP](https://github.com/eliakim-k/PdfCraftLocal/releases/download/v0.10.7-local.20261103/PdfCraftLocal-0.10.7-local.20261103-windows-x64-Portable.zip) · [All release files and checksums](https://github.com/eliakim-k/PdfCraftLocal/releases/tag/v0.10.7-local.20261103)
+
+Windows x64. Unsigned build. Desktop 0.10.7; installer 0.10.8. Save your documents and close the app before updating. Final installer lifecycle testing remains paused; see the release notes for the validation limits.
+
+The frozen source for this executable is tagged [`v0.10.7-local.20261103`](https://github.com/eliakim-k/PdfCraftLocal/tree/v0.10.7-local.20261103). The GitHub release and its six download files were published and publicly hash-verified on November 25, 2026. The source preparation record below was written before publication; its pending-publication statements are historical. Main adds this download notice only; application code remains at the prepared snapshot.
+
+---
+
 Read and work with PDF documents. Windows x64 local edition, with optional question answering through a separately installed local model runtime.
 
 Independent local adaptations by Eliakim M. Kambale, based on [pdfcraft by the ArtCraft team and contributors](https://github.com/storytold/pdfcraft). This is an independent fork; upstream endorsement is not claimed.
